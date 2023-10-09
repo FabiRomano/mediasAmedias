@@ -1,1 +1,378 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import "~font-awesome/css/font-awesome.css";
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: blanchedalmond; */
+    
+    
+}
+   /*************estilos en el header, titulo y banner*******************/
+.inicio{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #8f337b, #9b3d87, #a74793, #b4519f, #c05bab, #c767b2, #cf73b8, #d67fbf, #d98fc2, #db9fc6, #dcafca, #dcbfcf);
+
+}
+
+.titulo {
+  position: relative;
+  font-size: 4rem;
+    font-family: 'Dancing Script', cursive;
+    text-transform:capitalize;
+    color: whitesmoke;
+    text-shadow:
+    2px 2px 0px #333,
+    -2px -2px 0px #333,
+    2px -2px 0px #333,
+      -2px 2px 0px #333;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 1rem;
+  }
+
+
+.imagen-izquierda {
+    left: 94%;
+    
+}
+
+.imagen-derecha {
+    left: 0.5%;
+  
+}
+
+.imgTitulo {
+  position: absolute;
+  /* top: 15%; */
+  border-radius: 50%;
+  animation: rotate 5s linear infinite;
+  transform-origin: center center;
+  z-index: 1; 
+  margin: 3px;
+  width: 3.5rem; 
+  height: 3.5rem;
+  overflow: hidden; 
+}
+
+.contMayor{
+  display: flex;
+}
+
+.contBanner {
+    width: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 1rem;
+    margin-top: 0;
+}
+
+
+#users{
+  position: relative;
+  left: 23%;
+  margin-top:2.5rem;
+  font-size: 30px;
+}
+
+
+.subtitulo{
+  font-size: 2.5rem;
+  font-family: 'Dancing Script', cursive;
+  text-transform:capitalize;
+  color: whitesmoke;
+  text-shadow:
+  2px 2px 0px #333,
+  -2px -2px 0px #333,
+  2px -2px 0px #333,
+    -2px 2px 0px #333;
+  text-align: center;
+  margin-bottom: 0;
+  padding: 1rem;
+
+}
+
+       /*************estilos para el navBar*******************/
+
+#positionNav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: static;
+    background-image: linear-gradient(45deg, #FF69B4, #8A2BE2);
+    
+    
+}
+
+
+ .navbar {
+    display: flex;
+    background-color: #333;
+    overflow: hidden;
+    margin: 2px;
+    margin-top: 0;
+      
+    }
+    
+    .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left:5px;
+    padding-right: 5px;
+    padding-top: 0.1rem;
+     background-image: linear-gradient(45deg, #FF69B4, #8A2BE2) !important;
+    border-radius: 10px;
+      
+    }
+
+    .navbar ul:hover{
+      -webkit-box-shadow: 4px 10px 16px -4px rgba(235,221,235,1);
+      -moz-box-shadow: 4px 10px 16px -4px rgba(235,221,235,1);
+      box-shadow: 4px 10px 16px -4px rgba(235,221,235,1);
+    }
+    
+    .navbar li {
+    float: left;
+    }
+    
+    .navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #333232;
+    margin: 4px;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    font-size: 18px;
+    font-family: 'Dancing Script', cursive;
+
+    }
+    
+    .navbar a:hover {
+      transform: scale(1.2);
+      transition: 2s;
+      border-radius: 50%;
+      color: #000;
+      background-image: linear-gradient(to top, #8f337b, #9b3d87, #a74793, #b4519f, #c05bab, #c767b2, #cf73b8, #d67fbf, #d98fc2, #db9fc6, #dcafca, #dcbfcf);
+
+    }
+     
+   /*************estilos para los filtos y las cards*******************/
+.favoritos{
+  display: flex;
+  padding: 1rem;
+  background-image: linear-gradient(45deg, #FF69B4, #8A2BE2) !important;
+  font-size: 1.5rem;
+  flex-direction: row-reverse;
+ 
+}
+
+.favoritos i{
+  margin:5px;
+  margin-top: 0;
+}
+
+#corazon{
+  color: red;
+}
+
+#carrito{
+  color: white;
+}
+
+.subDescriptivo{
+  background-image: linear-gradient(45deg, #eba2c6, #b37be7) !important;
+
+}
+
+
+.positionCards{
+    display: flex;
+    padding: 3rem 1rem ;
+    border-top: 1px;
+    background-image: linear-gradient(to top, #8f337b, #9b3d87, #a74793, #b4519f, #c05bab, #c767b2, #cf73b8, #d67fbf, #d98fc2, #db9fc6, #dcafca, #dcbfcf);
+
+  }
+  
+
+
+   /*************cards*******************/
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1rem;
+    margin-top: 0;
+   
+}   
+
+.card{
+    width: 18rem;
+    margin: 5px;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    background-image: linear-gradient(45deg, #FF69B4, #8A2BE2);
+    font-size: 22px;
+    /* font-family: 'Dancing Script', cursive; */
+    color: whitesmoke !important;
+    text-transform:capitalize;
+    text-shadow:
+    2px 2px 0px #333,
+    -2px -2px 0px #333,
+    2px -2px 0px #333,
+      -2px 2px 0px #333;
+
+  
+   
+}
+
+.btn-carrito{
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 15px !important;
+}
+
+/****************foter*********************/
+
+.footer {
+  background-image: linear-gradient(45deg, #FF69B4, #8A2BE2) !important;
+   padding: 20px 0;
+   text-align: center;
+
+  }
+  
+
+
+  #pie-pag{
+   text-align: center;
+  }
+  
+  .social-icons li {
+    display: inline;
+    /* margin-right: 10px; */
+    margin: 15px;
+  
+
+}
+
+.social-icons a {
+  color: #0c0606;
+  text-decoration: none;
+  font-size:30px;
+
+}
+
+
+a:hover{
+  transform: scale(1.3);
+  transition: 1s;
+  color: #cac6ce;
+}
+
+
+#facebook, #inst, #tiktok, #correo, #celu{
+  position: relative;
+  -webkit-box-shadow: 4px 10px 16px -4px rgba(235,221,235,1);
+  -moz-box-shadow: 4px 10px 16px -4px rgba(235,221,235,1);
+  box-shadow: 4px 10px 16px -4px rgba(235,221,235,1);
+  width: 50px;
+  border-radius: 100%;
+  padding: 6px;
+  margin: 3px;
+  margin-bottom: 5px;
+}
+
+#facebook:hover, #celu:hover{
+  transform: scale(1.3);
+  transition: 1s;
+  color: #0c10e6;
+
+
+}
+
+
+#inst:hover{
+  transform: scale(1.3);
+  transition: 1s;
+  color:#eb1289ec ;
+
+}
+
+#tiktok:hover{
+  transform: scale(1.3);
+  transition: 1s;
+  color:white ;
+  background-color: #000;
+}
+
+#correo:hover{
+  transform: scale(1.3);
+  transition: 1s;
+  color: #333232;
+}
+
+
+
+#wtp{
+  position: fixed;
+  z-index: 1000;
+  bottom: 47px;
+  right: 20px;
+  -webkit-box-shadow: 4px 10px 16px -4px rgba(235,221,235,1);
+  -moz-box-shadow: 4px 10px 16px -4px rgba(235,221,235,1);
+  box-shadow: 4px 10px 16px -4px rgba(235,221,235,1);
+  width: 50px;
+  border-radius: 100%;
+  padding: 6px;
+  font-size: 40px !important;
+}
+
+#wtp:hover{
+  transform: scale(1.3);
+  transition: 1s;
+  background-color:#14ff4fec;
+  color: white;
+
+}
+
+
+/*******KEYFRAMES***********/
+
+@keyframes cambiaColor {
+  0% {
+    background-image: linear-gradient(45deg, #FF69B4, #8A2BE2);
+  }
+  25% {
+      background-image: linear-gradient(45deg, #FF1493, #9400D3);
+      color: rgb(211, 96, 96);
+    }
+
+  50% {
+    background-image: linear-gradient(45deg, #FF69B4, #8A2BE2);
+  }
+  /* 75% {
+      background-image: linear-gradient(45deg,#FF1493, #9400D2);
+      color: red;
+    } */
+  100% {
+    background-image: linear-gradient(45deg, #FF69B4, #8A2BE2);
+  }
+}
+
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
