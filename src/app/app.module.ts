@@ -7,6 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
+
 
 
 @NgModule({
@@ -16,11 +18,15 @@ import { ProductosComponent } from './components/productos/productos.component';
     NavBarComponent,
     FooterComponent,
     ProductosComponent,
+    NosotrosComponent
   ],
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
