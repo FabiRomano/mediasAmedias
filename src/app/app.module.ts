@@ -7,7 +7,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { LiquidacionesComponent } from './components/liquidaciones/liquidaciones.component';
+import { ConsultasComponent } from './components/consultas/consultas.component';
 
 
 
@@ -18,7 +21,10 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
     NavBarComponent,
     FooterComponent,
     ProductosComponent,
-    NosotrosComponent
+    InicioComponent,
+    NosotrosComponent,
+    LiquidacionesComponent,
+    ConsultasComponent,
   ],
 
 

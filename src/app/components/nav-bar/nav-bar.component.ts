@@ -9,5 +9,13 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
+  scrollToFooter() {
+    const footer = document.getElementById('footer');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
+
+  
 }

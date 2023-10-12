@@ -1,0 +1,33 @@
+.contNosotros{
+   
+    /* opacity: 1.5; */
+
+    /* background-image: url("https://i.ibb.co/XkxCcg0/9af02475-23c8-4524-9084-13a11e9ac3bf.jpg");
+    background-position: center;
+    background-size: cover; */
+    
+    /* background-repeat: no-repeat; */
+    /* border-radius: 50%; */
+    background-image: linear-gradient(45deg, #ff69b4, #8a2be2) !important;
+    
+   
+}
+
+.discurso{
+    margin: 15px;
+    padding: 1rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    /* color: #f1e8e8; */
+    /* text-transform:capitalize; */
+    /* font-weight: bold; */
+
+
+
+
+
+}
+
+h1{
+    padding: 1rem;
+}
