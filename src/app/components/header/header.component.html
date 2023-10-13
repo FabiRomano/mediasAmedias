@@ -1,8 +1,9 @@
-<div class="inicio">
+<div class="inicioo" id="inicioo" (mousemove)="addStar($event)">
   <img src="https://i.ibb.co/T4SWnM6/medias-Amedias-fotor-2023092617157.jpg" alt="Imagen Izquierda" class="imagen-izquierda imgTitulo">
   <h1 class="titulo">Medias A Medias</h1>
-
   <img src="https://i.ibb.co/T4SWnM6/medias-Amedias-fotor-2023092617157.jpg" alt="Imagen Derecha" class="imagen-derecha imgTitulo">
+  <div *ngFor="let star of stars" class="star" [style.top.px]="star.y" [style.left.px]="star.x"></div>
+
 </div>
 
 

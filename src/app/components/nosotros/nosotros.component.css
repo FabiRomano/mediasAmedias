@@ -8,16 +8,36 @@
     
     /* background-repeat: no-repeat; */
     /* border-radius: 50%; */
-    background-image: linear-gradient(45deg, #ff69b4, #8a2be2) !important;
+    /* background-image: linear-gradient(45deg, #ff69b4, #8a2be2) !important; */
     
-   
+    /* animation: cambiaColor 10s infinite linear; */
+    /* background-size: 400% 400%; */
+    background-image: linear-gradient(
+        to top,
+        #8f337b,
+        #9b3d87,
+        #a74793,
+        #b4519f,
+        #c05bab,
+        #c767b2,
+        #cf73b8,
+        #d67fbf,
+        #d98fc2,
+        #db9fc6,
+    
+        #dcafca,
+        #dcbfcf
+      );
 }
 
 .discurso{
     margin: 15px;
     padding: 1rem;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.6rem;
+    font-family: 'Playfair Display', serif;
+    /* font-family: 'Dancing Script', cursive; */
+    font-size: 1.5rem;
+    /* color: aliceblue; */
+    text-align: center;
     /* color: #f1e8e8; */
     /* text-transform:capitalize; */
     /* font-weight: bold; */
