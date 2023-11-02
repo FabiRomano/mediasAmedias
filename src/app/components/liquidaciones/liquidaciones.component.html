@@ -1,23 +1,29 @@
 <div class="tituloNovedades">
-    <h2 class="subtitulo">Liquidaciones</h2>
-    <div class="favoritos">
+  <h2 class="subtitulo">Liquidaciones</h2>
+  <div class="favoritos">
     <i class="fa-solid fa-cart-shopping" id="carrito"></i>
     <i class="fa-solid fa-heart" id="corazon"></i>
-    </div>
   </div>
+</div>
+
+<i class="fa-solid fa-house casita" (click)="goToInicio()"><br><br>Inicio</i>
+
   <div class="positionCards">
   <div class="cards"> 
   
-        <div *ngFor="let character of characters">
-          <div class="card">
-            <img [src]="character.image" alt="{{ character.name }}" />
-            <div class="card-body">
-              <h5 class="card-title">{{ character.name }}</h5>
-              <p class="card-text">Species: {{ character.species }}</p>
-            </div>
-          </div>
+    <div *ngFor="let media of medias">
+      <div class="card">
+        <img [src]="media.img" alt="{{ media.name }}" />
+        <div class="card-body">
+          <h5 class="card-title">{{ media.name }}</h5>
+          <p class="card-text">Descripcion: {{ media.description }}</p>
+          <p>Precio: {{ media.precio | currency }}</p> 
         </div>
-           
-        
-  </div>     
+      </div>
+    </div> 
+
+    
   </div>
+  
+  <button (click)="scrollToTop()" class="btn-scroll-top btn-up">
+    <i class="fa-solid fa-chevron-up"></i><br>Up</button>

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RickAndMortyService } from 'src/app/rick-and-morty.service'
+import { Router } from '@angular/router';
+import { MediaService } from 'src/app/services/medias.service';
+import { Media } from 'src/app/models/media';
+
+
 
 
 
@@ -11,16 +16,30 @@ import { RickAndMortyService } from 'src/app/rick-and-morty.service'
 })
 
 export class ProductosComponent implements OnInit {
-  characters: any[] = [];
+  //conecto api de prueba
+  medias: Media[] = [];
 
-  constructor(private rickAndMortyService: RickAndMortyService) {}
+  constructor(private mediasService: MediaService , private router: Router) {}
 
   ngOnInit(): void {
-    this.rickAndMortyService.getCharacters().subscribe((data: any) => {
-      this.characters = data.results;
-    });
+    this.mediasService.getMedias()
+      .subscribe(medias => {
+        this.medias = medias;
+      });
+      console.log(this.medias)
+
+     
   }
 
+
+  //regreso al inicio
+  scrollToTop() {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }
+  
+  goToInicio() {
+    this.router.navigate(['/inicio']);
+  }
 
 }
 

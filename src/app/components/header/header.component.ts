@@ -1,4 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Media } from 'src/app/models/media';
+import { MediaService } from 'src/app/services/medias.service';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +10,27 @@ import { Component, HostListener } from '@angular/core';
 
 
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  /*conecto api */
+  medias: Media[] = [];
 
-  
+  constructor(private mediasService: MediaService) { } 
+
+  ngOnInit(): void {
+    this.mediasService.getMedias()
+      .subscribe(medias => {
+        this.medias = medias;
+      });
+      console.log(this.medias)
+
+     
+  }
+    
+
+    
+  /** funcion estrellias */
   stars: { x: number, y: number }[] = [];
-
-  @HostListener('document:mousemove', ['$event'])
+ @HostListener('document:mousemove', ['$event'])
   addStar(event: MouseEvent) {
     const inicio = document.getElementById('inicioo');
     if (inicio) {

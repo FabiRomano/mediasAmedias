@@ -1,16 +1,15 @@
 <app-nav-bar></app-nav-bar>
 <app-header></app-header>
 <div class="contNosotros">
-    <h1 class="titulo">Preguntas Frecuentes</h1>
+    <h2 class="titulo-consultas">Preguntas Frecuentes</h2>
 
-
-
-    <div class="container">
-        <div class="text">
-          Te presentamos el estudio Camva
-        </div>
+    <div class="faq-container">
+      <div class="faq-item" *ngFor="let faq of faqs">
+        <div class="question" (click)="toggleAnswer(faq)">{{ faq.question }}</div>
+        <div class="answer" *ngIf="faq.show">{{ faq.answer }}</div>
       </div>
-
+    </div>
+    
 
     <app-footer></app-footer>
 
