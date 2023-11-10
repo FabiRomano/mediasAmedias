@@ -1,0 +1,37 @@
+<!-- carrito.component.html -->
+
+<div class="carrito-container" mat-dialog-content>
+    <h2>Carrito de Compras</h2>
+  
+    <div *ngIf="items.length > 0; else carritoVacio">
+      <div *ngFor="let item of items" class="carrito-item">
+        <img [src]="item.media.img" alt="{{ item.media.name }}" class="carrito-imagen">
+        <div class="carrito-detalle">
+          <p class="carrito-titulo">{{ item.media.name }}</p>
+          <p class="carrito-descripcion">{{ item.media.description }}</p>
+          <p class="carrito-precio">{{ item.media.precio | currency }}</p>
+          <p>Cantidad: {{ item.cantidad }}</p>
+          <span (click)="eliminarDelCarrito(item.media)">
+            <i class="fas fa-trash"></i>
+          </span>
+        </div>
+      </div>
+  
+      <div class="carrito-total">
+        <p>Total: {{ calcularTotal() | currency }}</p>
+      </div>
+  
+      <div class="carrito-botones">
+        <a (click)="vaciarCarrito()">Vaciar</a>
+        <button mat-button (click)="cerrarCarrito()">Cerrar</button>
+      </div>
+    </div>
+  
+    <ng-template #carritoVacio>
+      <p>El carrito está vacío.</p>
+      <div class="carrito-botones">
+        <button mat-button (click)="cerrarCarrito()">Cerrar</button>
+      </div>
+    </ng-template>
+  </div>
+  

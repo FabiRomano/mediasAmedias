@@ -1,14 +1,20 @@
 <div class="tituloNovedades">
+  <i class="fa-solid fa-house casita" (click)="goToInicio()"><br></i>
+
+
   <h2 class="subtitulo">Liquidaciones</h2>
-  <div class="favoritos">
-    <i class="fa-solid fa-cart-shopping" id="carrito"></i>
-    <i class="fa-solid fa-heart" id="corazon"></i>
-  </div>
 </div>
 
-<i class="fa-solid fa-house casita" (click)="goToInicio()"><br><br>Inicio</i>
+<div class="favoritos">
+  <i class="fa-solid fa-cart-shopping btn-carrito" id="carrito-producto" (click)="abrirCarrito()"></i>
+  <i class="fa-solid fa-heart" id="corazon"></i>
+</div>
 
-  <div class="positionCards">
+<div class="positionCards">
+
+<button (click)="scrollToTop()" class="btn-scroll-top btn-up">
+  <i class="fa-solid fa-chevron-up"></i><br>Up</button>
+
   <div class="cards"> 
   
     <div *ngFor="let media of medias">
@@ -18,12 +24,13 @@
           <h5 class="card-title">{{ media.name }}</h5>
           <p class="card-text">Descripcion: {{ media.description }}</p>
           <p>Precio: {{ media.precio | currency }}</p> 
+          <button (click)="agregarAlCarrito(media)">Agregar</button>
+          <button (click)="eliminarDelCarrito(media)">Eliminar</button>
         </div>
       </div>
     </div> 
 
-    
+  </div>
   </div>
   
-  <button (click)="scrollToTop()" class="btn-scroll-top btn-up">
-    <i class="fa-solid fa-chevron-up"></i><br>Up</button>
+ 

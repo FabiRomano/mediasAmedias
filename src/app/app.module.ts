@@ -12,6 +12,10 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { LiquidacionesComponent } from './components/liquidaciones/liquidaciones.component';
 import { ConsultasComponent } from './components/consultas/consultas.component';
 import { LoginComponent } from './components/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CarritoComponent } from './components/carrito/carrito.component';
+
 
 
 
@@ -27,6 +31,7 @@ import { LoginComponent } from './components/login/login.component';
     LiquidacionesComponent,
     ConsultasComponent,
     LoginComponent,
+    CarritoComponent,
   ],
 
 
@@ -34,7 +39,8 @@ import { LoginComponent } from './components/login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
+    BrowserAnimationsModule,
+    MatDialogModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
