@@ -34,6 +34,7 @@ export class CarritoService {
       }
     }
   }
+  
 
   vaciarCarrito(): void {
     this.items = [];
@@ -48,6 +49,16 @@ export class CarritoService {
   calcularTotal(): number {
     return this.items.reduce((total, item) => total + item.media.precio * item.cantidad, 0);
   }
+
+  
+
+  actualizarCarrito(items: { media: Media; cantidad: number }[]): void {
+    this.items = items;
+  }
+
+
+
+
 
 
   constructor() { }

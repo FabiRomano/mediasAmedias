@@ -46,7 +46,8 @@ export class LiquidacionesComponent implements OnInit  {
 
 abrirCarrito(): void {
   const dialogRef = this.dialog.open(CarritoComponent, {
-    width: '250px', // Ajusta el ancho del modal según sea necesario
+    width: '300px', // Ajusta el ancho del modal según sea necesario
+    
   });
 }
 

@@ -52,6 +52,7 @@ abrirCarrito(): void {
   const dialogRef = this.dialog.open(CarritoComponent, {
     width: '300px', // Ajusta el ancho del modal según sea necesario
     panelClass: 'carrito-container', // Agrega la clase al contenedor del carrito
+    
 
   });
 }
@@ -68,6 +69,11 @@ abrirCarrito(): void {
     this.carritoService.eliminarDelCarrito(media);
     console.log("eliminar del carrito");
   }
+
+
+
+
+
 
 
 }
