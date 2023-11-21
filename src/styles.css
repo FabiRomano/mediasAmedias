@@ -945,9 +945,9 @@ body {
 .carrito-container {
   max-width: 400px; /* Ajusta el ancho máximo según sea necesario */
   margin: 20px;
-  position: fixed;
-  top: 0;
-  right: 0;
+  /* position: fixed; */
+  /* top: 0;
+  right: 0; */
   background-color: #fff; /* Cambia el color de fondo según tu diseño */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra sutil */
   padding: 20px;

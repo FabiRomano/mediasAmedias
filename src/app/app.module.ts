@@ -15,6 +15,8 @@ import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -40,9 +42,13 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule 
+    MatDialogModule,
+    FormsModule,
+ 
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

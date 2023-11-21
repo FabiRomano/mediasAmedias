@@ -41,6 +41,18 @@
     </div>
   </ng-template>
 
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" [(ngModel)]="nombreComprador" id="nombre" required>
+  </div>
+  <div>
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" [(ngModel)]="telefonoComprador" id="telefono" required>
+  </div>
+  <div>
+    <button (click)="finalizarCompra()">Finalizar Compra</button>
+  </div>
+
   
 </div>
 

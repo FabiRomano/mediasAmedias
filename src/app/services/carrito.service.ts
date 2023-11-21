@@ -2,12 +2,37 @@
 
 import { Injectable } from '@angular/core';
 import { Media } from '../models/media';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarritoService {
+
+
   private items: { media: Media; cantidad: number }[] = [];
+  private nombreComprador: string = '';
+  private telefonoComprador: string = '';
+
+
+    // Métodos para obtener y establecer el nombre del comprador
+    getNombreComprador(): string {
+      return this.nombreComprador;
+    }
+  
+    setNombreComprador(nombre: string): void {
+      this.nombreComprador = nombre;
+    }
+  
+    // Métodos para obtener y establecer el teléfono del comprador
+    getTelefonoComprador(): string {
+      return this.telefonoComprador;
+    }
+  
+    setTelefonoComprador(telefono: string): void {
+      this.telefonoComprador = telefono;
+    }
+
 
   agregarAlCarrito(media: Media): void {
     const index = this.items.findIndex(item => item.media.id === media.id);

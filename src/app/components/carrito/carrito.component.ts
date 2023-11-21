@@ -3,7 +3,9 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Media } from 'src/app/models/media';
+import { Pedido } from 'src/app/models/pedido';
 import { CarritoService } from 'src/app/services/carrito.service';
+import { PedidoService } from 'src/app/services/pedido.service';
 
 @Component({
   selector: 'app-carrito',
@@ -12,18 +14,57 @@ import { CarritoService } from 'src/app/services/carrito.service';
 })
 export class CarritoComponent {
   items: { media: Media; cantidad: number }[] = []; // Inicializamos como un arreglo vacío
+  // Supongamos que ya tienes estas variables en tu componente
+  nombreComprador: string = ''; // Inicializadas aquí
+  telefonoComprador: string = '';
+
 
 
 
   constructor(
     public dialogRef: MatDialogRef<CarritoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private carritoService: CarritoService
+    private carritoService: CarritoService,
+    private pedidoService: PedidoService
   ) 
   
   {
     this.actualizarCarrito();
   }
+
+// Método para finalizar la compra
+finalizarCompra(): void {
+  // Verificar si tienes un nombre y teléfono del comprador
+  if (!this.nombreComprador || !this.telefonoComprador) {
+    console.error('Debe ingresar el nombre y el teléfono del comprador.');
+    // Puedes agregar lógica adicional, como mostrar un mensaje de error
+    return;
+  }
+
+  // Calcular el total
+  const totalCompra = this.calcularTotal();
+
+  // Construir los datos del pedido
+  const datosPedido = {
+    date: new Date().toISOString(),
+  //  clienteId: 1, // Ajusta según sea necesario
+    //mediasId: 2, // Ajusta según sea necesario
+    informacionCarrito: JSON.stringify(this.items), // Convertir a cadena JSON
+    nombreComprador: this.nombreComprador,
+    telefonoComprador: this.telefonoComprador,
+    total: totalCompra,
+  };
+
+  // Llamar al servicio de pedidos para enviar el pedido
+  this.pedidoService.enviarPedido(datosPedido);
+
+  // Cerrar el carrito después de enviar el pedido
+  this.cerrarCarrito();
+}
+
+
+  
+  
 
   // Método para cerrar el carrito (y por ende, el modal)
   cerrarCarrito(): void {
