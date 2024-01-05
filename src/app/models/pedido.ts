@@ -6,4 +6,5 @@ export interface Pedido {
     informacionCarrito: string;
     nombreComprador: string;
     telefonoComprador: string;
+    emailCliente: string;
   }

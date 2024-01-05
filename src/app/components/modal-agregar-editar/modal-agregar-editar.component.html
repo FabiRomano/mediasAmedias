@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>{{ media ? 'Editar Media' : 'Agregar Nueva Media' }}</h1>
+
+<div mat-dialog-content>
+  <form>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Nombre" [(ngModel)]="name" name="name" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Descripción" [(ngModel)]="description" name="description" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput type="number" placeholder="Precio" [(ngModel)]="precio" name="precio" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="URL de la Imagen" [(ngModel)]="img" name="img" required>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cerrarModal()">Cancelar</button>
+  <button mat-button color="primary" (click)="guardarMedia()">{{ media ? 'Guardar Cambios' : 'Agregar Media' }}</button>
+</div>
+

@@ -17,6 +17,10 @@
 
 
 <div class="cards"> 
+<button type="button" class="btn btn-success" (click)="abrirModalAgregar()">nuevo</button>
+
+
+
     <div *ngFor="let media of medias">
         <div class="card">
           <img [src]="media.img" alt="{{ media.name }}" />
@@ -27,8 +31,21 @@
             <button (click)="agregarAlCarrito(media)">Agregar</button>
             <button (click)="eliminarDelCarrito(media)">Eliminar</button>
 
+              
+            <button (click)="editarProducto(media)">Editar</button>
+
+
+            <button
+            class="bot-editar"
+            (click)="eliminarProducto(media.id)"
+          >
+            <i class="bi bi-trash-fill"></i>Eli
+          </button>
+
+
           </div>
         </div>
+
       </div>
         
 </div>     

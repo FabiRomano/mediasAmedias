@@ -14,7 +14,8 @@
         <!-- Nuevo párrafo para el total por artículo -->
         <p>Total por artículo: {{ calcularTotalPorItem(item) | currency }}</p>
         <span (click)="eliminarDelCarrito(item.media)">
-          <i class="fas fa-trash"></i>
+          <i class="fas fa-minus"></i>
+
         </span>
         <!-- Nuevo span para el icono de sumar -->
         <span (click)="sumarAlCarrito(item.media)">
@@ -27,18 +28,47 @@
       <p>Total: {{ calcularTotal() | currency }}</p>
     </div>
 
+
+    <a (click)="irAProductos()">
+      <!-- <mat-icon>add_shopping_cart</mat-icon> -->
+     Ir a Novedades
+    </a>
+    <a (click)="irALiquidaciones()">
+      <!-- <mat-icon>add_shopping_cart</mat-icon> -->
+      Ir a Liquiaciones
+    </a>
+
     <div class="carrito-botones">
-      <a (click)="vaciarCarrito()">Vaciar</a>
-      <button mat-button (click)="cerrarCarrito()">Cerrar</button>
+
+      <a (click)="vaciarCarrito()">
+        <mat-icon>cleaning_services</mat-icon>
+      </a>
+      
+      <span (click)="cerrarCarrito()">
+        <mat-icon>close</mat-icon>
+      </span>
+      
+      
       
     </div>
   </div>
+  
 
   <ng-template #carritoVacio>
     <p>El carrito está vacío.</p>
-    <div class="carrito-botones">
-      <button mat-button (click)="cerrarCarrito()">Cerrar</button>
-    </div>
+    <a (click)="irAProductos()">
+      <!-- <mat-icon>add_shopping_cart</mat-icon> -->
+      Ir a Novedades
+    </a>
+    <a (click)="irALiquidaciones()">
+      <!-- <mat-icon>add_shopping_cart</mat-icon> -->
+      Ir a Liquidaciones
+    </a>
+        
+    <span (click)="cerrarCarrito()">
+      <mat-icon>close</mat-icon>
+    </span>
+    
   </ng-template>
 
   <div>
@@ -49,6 +79,11 @@
     <label for="telefono">Teléfono:</label>
     <input type="tel" [(ngModel)]="telefonoComprador" id="telefono" required>
   </div>
+  <div>
+    <label for="email">Correo Electrónico:</label>
+    <input type="email" [(ngModel)]="emailCliente" id="email" required>
+  </div>
+  
   <div>
     <button (click)="finalizarCompra()">Finalizar Compra</button>
   </div>

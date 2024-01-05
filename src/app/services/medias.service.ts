@@ -8,12 +8,15 @@ import { environment } from 'src/environment/environment';
   providedIn: 'root'
 })
 export class MediaService {
-  private apiUrl = `${environment.apiUrl}/medias`; // Agrega '/medias' a la URL
+  private apiUrl = `${environment.apiUrl}/medias`;
 
   constructor(private http: HttpClient) {}
 
+
+
+
   getMedias(): Observable<Media[]> {
-    return this.http.get<Media[]>(this.apiUrl + '/all'); // Ajusta la ruta según tus necesidades
+    return this.http.get<Media[]>(this.apiUrl + '/all');
   }
 
   getMediaById(id: number): Observable<Media> {
@@ -22,7 +25,7 @@ export class MediaService {
   }
 
   addMedia(media: Media): Observable<Media> {
-    return this.http.post<Media>(this.apiUrl + '/create', media); // Ajusta la ruta según tus necesidades
+    return this.http.post<Media>(this.apiUrl + '/create', media);
   }
 
   updateMedia(media: Media): Observable<Media> {

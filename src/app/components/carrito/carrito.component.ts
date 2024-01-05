@@ -2,10 +2,15 @@
 
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Media } from 'src/app/models/media';
 import { Pedido } from 'src/app/models/pedido';
 import { CarritoService } from 'src/app/services/carrito.service';
+import { NotificacionService } from 'src/app/services/notificacion.service';
 import { PedidoService } from 'src/app/services/pedido.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-carrito',
@@ -15,8 +20,9 @@ import { PedidoService } from 'src/app/services/pedido.service';
 export class CarritoComponent {
   items: { media: Media; cantidad: number }[] = []; // Inicializamos como un arreglo vacío
   // Supongamos que ya tienes estas variables en tu componente
-  nombreComprador: string = ''; // Inicializadas aquí
+  nombreComprador: string = ''; 
   telefonoComprador: string = '';
+  emailCliente: string = ''; 
 
 
 
@@ -25,46 +31,76 @@ export class CarritoComponent {
     public dialogRef: MatDialogRef<CarritoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private carritoService: CarritoService,
-    private pedidoService: PedidoService
+    private pedidoService: PedidoService,
+    private notificacionService: NotificacionService,
+    private snackBar: MatSnackBar,
+    private router: Router
   ) 
   
   {
     this.actualizarCarrito();
   }
 
+
 // Método para finalizar la compra
 finalizarCompra(): void {
   // Verificar si tienes un nombre y teléfono del comprador
   if (!this.nombreComprador || !this.telefonoComprador) {
-    console.error('Debe ingresar el nombre y el teléfono del comprador.');
-    // Puedes agregar lógica adicional, como mostrar un mensaje de error
+    this.mostrarMensajeError('Debe ingresar el nombre y el teléfono del comprador.');
     return;
   }
 
-  // Calcular el total
+  // Verificar si hay productos en el carrito
+  if (this.items.length === 0) {
+    this.mostrarMensajeError('El carrito está vacío. Agregue productos antes de finalizar la compra.');
+    return;
+  }
+
+
+  // Calcula el total
   const totalCompra = this.calcularTotal();
+    // Obtén el valor del campo de correo electrónico
+    // this.emailCliente = 'this.emailCliente';
+  
+  // Verifica que el valor del correo electrónico sea correcto
+  console.log('Correo electrónico:', this.emailCliente);
+
 
   // Construir los datos del pedido
   const datosPedido = {
     date: new Date().toISOString(),
-  //  clienteId: 1, // Ajusta según sea necesario
-    //mediasId: 2, // Ajusta según sea necesario
     informacionCarrito: JSON.stringify(this.items), // Convertir a cadena JSON
     nombreComprador: this.nombreComprador,
     telefonoComprador: this.telefonoComprador,
+    emailCliente: this.emailCliente,
     total: totalCompra,
   };
+
+  
 
   // Llamar al servicio de pedidos para enviar el pedido
   this.pedidoService.enviarPedido(datosPedido);
 
   // Cerrar el carrito después de enviar el pedido
   this.cerrarCarrito();
+
+  // Mostrar mensaje de éxito
+  this.mostrarMensajeExito('Pedido enviado con éxito. Nos pondremos en contacto pronto.');
 }
 
+private mostrarMensajeError(mensaje: string): void {
+  this.snackBar.open(mensaje, 'Cerrar', { duration: 5000, panelClass: 'mensaje-error' });
+}
 
-  
-  
+private mostrarMensajeExito(mensaje: string): void {
+  this.snackBar.open(mensaje, 'Cerrar', { duration: 5000, panelClass: 'mensaje-exito' });
+}
+
+ 
+
+
+
+
 
   // Método para cerrar el carrito (y por ende, el modal)
   cerrarCarrito(): void {
@@ -135,7 +171,14 @@ calcularTotalPorItem(item: any): number {
 }
 
 
+irAProductos(): void {
+  // Utilizo el Router para navegar al componente de productos o loquidaciones
+  this.router.navigate(['/novedades']);
+}
 
+irALiquidaciones(): void {
+  this.router.navigate(['/liquidaciones']);
+}
 
 
 

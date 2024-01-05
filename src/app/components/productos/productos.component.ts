@@ -5,6 +5,8 @@ import { Media } from 'src/app/models/media';
 import { MatDialog } from '@angular/material/dialog';
 import { CarritoComponent } from '../carrito/carrito.component';
 import { CarritoService } from 'src/app/services/carrito.service';
+import { ModalAgregarEditarComponent } from '../modal-agregar-editar/modal-agregar-editar.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 
@@ -58,6 +60,59 @@ abrirCarrito(): void {
 }
 
 
+//logica para abrir modal de nuevos productos
+
+abrirModalAgregar(): void {
+  const dialogRef = this.dialog.open(ModalAgregarEditarComponent, {
+    data: { media: null },  // Pasa media como nulo para agregar
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('El modal se cerró:', result);
+    // Puedes agregar lógica adicional si es necesario
+  });
+}
+
+
+
+
+
+
+//logica para abrir modal y editar productos
+
+
+editarProducto(media: Media): void {
+  const dialogRef = this.dialog.open(ModalAgregarEditarComponent, {
+    data: { media: media },  // Pasa la media existente para editar
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('El modal se cerró:', result);
+    // Puedes agregar lógica adicional si es necesario
+  });
+}
+
+
+
+
+public eliminarProducto(id: number): void {
+  this.mediasService.deleteMedia (id).subscribe({
+    next: () => {
+      alert('Se elimino correctamente');
+      this.router.navigate(['']);
+      console.log(JSON.stringify(id));
+      
+    },
+    error: (error: HttpErrorResponse) => {
+      alert('No se pudo eliminar');
+      this.router.navigate(['']);
+      console.log(JSON.stringify(id));
+
+    }
+  });
+
+}
+
 //logica para agregar o eliminar ´productos del carrito
 
   agregarAlCarrito(media : Media): void {
@@ -71,13 +126,11 @@ abrirCarrito(): void {
   }
 
 
-
-
-
+  
+  
 
 
 }
-
 
 
 

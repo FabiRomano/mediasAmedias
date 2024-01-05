@@ -16,6 +16,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar'; 
+import { MatIconModule } from '@angular/material/icon';
+import { ModalAgregarEditarComponent } from './components/modal-agregar-editar/modal-agregar-editar.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
+
 
 
 
@@ -34,6 +42,7 @@ import { FormsModule } from '@angular/forms';
     ConsultasComponent,
     LoginComponent,
     CarritoComponent,
+    ModalAgregarEditarComponent,
   ],
 
 
@@ -44,6 +53,10 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
+    MatSnackBarModule, 
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
  
   ],
   providers: [
